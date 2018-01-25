@@ -1,0 +1,37 @@
+<style>
+
+    .square {
+        margin-left: -300px;
+        grid-column: 3/4;
+        width: 20em;
+        height: 5em;
+        transition: transform .6s cubic-bezier(.5,-0.59,.5,1.45);
+    }
+    .square--push-out {
+        transform: translateX(50vw);
+    }
+</style>
+<button id="button">Push me
+</button>
+<div class="square">
+
+</div>
+<div class="square">
+
+</div>
+<div class="square">
+
+</div>
+<script>
+    const button = document.getElementById('button');
+    let square = document.querySelectorAll('.square');
+    square[0].style.backgroundColor = 'black';
+    square[1].style.backgroundColor = 'red';
+    square[2].style.backgroundColor = 'yellow';
+    const move = () => {
+        for (let i = 0; i < square.length; i++) {
+            setTimeout(function () { square[i].classList.toggle('square--push-out') }, i * 100);
+        }
+    }
+    button.addEventListener('click', move);
+</script>
